@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     mode: 'production',
-    entry: './src/index.js',
+    entry: ['./src/index.js','./src/scss/main.scss'], 
     devServer: {
         port: 3000,
         host: 'localhost',
@@ -51,8 +51,8 @@ module.exports = {
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
-            filename: "[name].css",
-            chunkFilename: "[id].css"
+            filename: 'dist/[name].bundle.css',
+            chunkFilename: "dist/[id].css"
         })
     ]
 }
