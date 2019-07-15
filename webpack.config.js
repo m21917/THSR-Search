@@ -8,6 +8,7 @@ module.exports = {
         host: 'localhost',
         historyApiFallback: true,
     },
+    devtool: 'source-map',
     output: {
         filename: 'bundle.js',
         path: path.resolve('./public/dist'),
