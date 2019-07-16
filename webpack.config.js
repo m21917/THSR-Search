@@ -13,7 +13,7 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve('./public/dist'),
-        publicPath: 'http://localhost:3000/dist/',
+        publicPath: '/dist/',
     },
     module: {
         rules: [
@@ -39,6 +39,14 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
+                use: [
+                    process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    "css-loader", // translates CSS into CommonJS
+                    "sass-loader" // compiles Sass to CSS, using Node Sass by default
+                ]
+            },
+            {
+                test: /\.css$/,
                 use: [
                     process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
                     "css-loader", // translates CSS into CommonJS
